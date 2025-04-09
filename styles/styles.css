@@ -1,0 +1,387 @@
+/* Apply Lato font */
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400 ;
+    
+}
+
+
+
+
+
+
+
+/* Posicionamiento del dropdown */
+.nav-item.dropdown {
+  position: relative; /* Permite que el .dropdown-menu se posicione relativo a este contenedor */
+}
+
+/* Estilos del menú desplegable */
+.nav-item.dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  margin: 0;
+  padding: 0.5rem 0;
+  display: none;
+  z-index: 9999;
+}
+
+/* Muestra el dropdown al hacer hover (opcional, para escritorio) */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Estilos para los items del dropdown */
+.dropdown-menu .dropdown-item:hover {
+  color: #5b0d29;
+  background-color: transparent;
+}
+
+/* Estilos generales del navbar */
+.navbar {
+  padding: 0.5rem 0;
+  box-shadow: 0 2px 4px rgba(247, 0, 0, 0.1);
+  font-size: 18px;
+  background-color: transparent;
+}
+
+#navbar {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.navbar-transparent {
+  background-color: transparent !important;
+}
+.navbar-scrolled {
+  background-color: rgba(255, 255, 255, 1) !important;
+}
+.navbar-hidden {
+  transform: translateY(-100%);
+}
+
+
+/* Define un contenedor fijo para la marca */
+.navbar-brand {
+    display: inline-block;
+    width: 200px;      /* Tamaño fijo */
+    height: 130px;     /* Tamaño fijo */
+    overflow: hidden;  /* Evita que la imagen ampliada se salga del contenedor */
+  }
+  
+  /* Aplica un escalado a la imagen dentro del contenedor */
+  .navbar-brand img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;  /* O 'cover', según el efecto deseado */
+    transform: scale(1.5);  /* Aumenta la imagen un 20% */
+    transition: transform 0.3s ease; /* Transición suave (opcional) */
+  }
+  
+
+
+/* Consolidación de estilos para los enlaces */
+.nav-link {
+  position: relative;
+  padding: 10px;
+  font-size: 18px;
+  color: #333;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  font-weight: 400;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #5b0d29;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom center;
+}
+
+.nav-link:hover {
+  color: #5b0d29;
+}
+
+
+
+
+
+
+ /* Button Styling */
+ .btn-custom {
+    margin-top: 30px;
+    display: inline-block;
+    text-align: center;
+    display: inline-block;
+    padding: 9px 24px;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #5b0d29;
+    border: 2px solid #5b0d29;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  margin-right: 15px; /* Agrega separación entre los botones */
+    transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #ffffff;
+    color: #5b0d29;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+
+@font-face {
+    font-family: 'ITC Edwardian';
+    src: url('../assets/font/PinyonScript-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.vinosdonjulian {
+    font-size: 130px;
+    font-family: 'ITC Edwardian', serif;
+    background-color: transparent;
+    text-shadow: #000 3px 3px 5px;  
+    
+}
+
+
+   /* Estilos para el carrito flotante */
+   #floating-cart {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #ffffff;
+    border-color: #000;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 9999;
+    max-width: 300px;
+    display: none;
+
+  }
+  .cart-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .cart-controls button {
+    background-color: #5b0d29;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .menu-item img {
+    border-radius: 10px;
+    width: 100%;
+  }
+  .menu-item {
+    margin-bottom: 30px;
+  }
+
+  
+
+
+  .hero {
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 10px;
+}
+
+
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* Full viewport height */
+    overflow: hidden;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the section without distortion */
+    z-index: -1; /* Places the image behind the content */
+    
+}
+
+
+
+.container-hero {
+    position: relative;
+    z-index: 1; /* Ensures text and buttons appear above the image */
+    text-align: center;
+    color: #fff; /* Adjust text color as needed */
+}
+
+/* Use DM Serif Display for the title */
+.hero h1 {
+    font-size: 5rem;
+    font-weight: 400;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1.5rem;
+    word-spacing: 30px;
+}
+
+/* Estilo para los botones personalizados */
+
+
+
+
+/* Custom Styles */
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 2rem 0;
+}
+.footer .footer-logo img {
+    width: 100px;
+}
+.footer .description {
+    font-style: italic;
+    font-size: 0.9rem;
+}
+.footer .social-icons a {
+    color: #fff;
+    margin-right: 10px;
+}
+.footer .bottom-bar {
+    border-top: 1px solid #555;
+    padding-top: 1rem;
+    font-size: 0.85rem;
+    text-align: center;
+}
+.footer a {
+    color: #fff;
+    text-decoration: none;
+}
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.centerlogo {
+    display: flex;
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center;     /* Centers the image vertically */
+    height: 80vh;           /* Makes the container take full viewport height */
+}
+
+.custom-container {
+    padding-left: 50px; /* Adjust this value to add more or less padding */
+}
+
+
+
+
+
+
+/* Style for WhatsApp floating button */
+/* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    background-color: #25D366; /* WhatsApp green */
+    color: white;
+    border-radius: 50%; /* Circular button */
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    z-index: 1000; /* Ensure it overlays other elements */
+}
+
+
+.whatsapp-float i {
+    font-size: 35px; /* Adjust icon size */
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E; /* Darker green on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+    transition: all 0.3s ease;
+}
+
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+.whatsapp-float i {
+    display: block;
+    text-align: center;
+}
+
+
+.footer {
+    background: url('../assets/vinos.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 40px 0;
+    position: relative;
+
+}
+
+
+.footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent black */
+    z-index: 1;
+}
+
+.footer * {
+    position: relative;
+    z-index: 2; /* Ensures the text appears above the overlay */
+}
+
+
+.footer h2, .footer p {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Adjust values as needed */
+}
+
+
+
+
+
+
+
+
