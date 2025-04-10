@@ -9,14 +9,50 @@ body {
 
 
 
-
-
-/* Posicionamiento del dropdown */
-.nav-item.dropdown {
-  position: relative; /* Permite que el .dropdown-menu se posicione relativo a este contenedor */
+/* Reduced navbar height by lowering padding */
+.navbar {
+  padding: 0.25rem 0;  /* Reduced from 0.5rem to 0.25rem */
+  box-shadow: 0 2px 4px rgba(247, 0, 0, 0.1);
+  font-size: 18px;
+  background-color: #ffffff;
 }
 
-/* Estilos del menú desplegable */
+#navbar {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-transparent {
+  background-color: transparent !important;
+}
+.navbar-scrolled {
+  background-color: rgba(255, 255, 255, 1) !important;
+}
+.navbar-hidden {
+  transform: translateY(-100%);
+}
+
+/* Adjusted navbar-brand size for a smaller navbar */
+.navbar-brand {
+  display: inline-block;
+  width: 150px;    /* Adjusted width (if needed) */
+  height: 100px;   /* Reduced from 130px to 100px */
+  overflow: hidden;
+}
+
+/* Image inside the navbar-brand remains scaled */
+.navbar-brand img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(1.7);
+  transition: transform 0.3s ease;
+}
+
+/* Other styles remain unchanged */
+.nav-item.dropdown {
+  position: relative;
+}
+
 .nav-item.dropdown .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -28,64 +64,20 @@ body {
   z-index: 9999;
 }
 
-/* Muestra el dropdown al hacer hover (opcional, para escritorio) */
 .nav-item.dropdown:hover .dropdown-menu {
   display: block;
 }
 
-/* Estilos para los items del dropdown */
 .dropdown-menu .dropdown-item:hover {
   color: #5b0d29;
   background-color: transparent;
 }
 
-/* Estilos generales del navbar */
-.navbar {
-  padding: 0.5rem 0;
-  box-shadow: 0 2px 4px rgba(247, 0, 0, 0.1);
-  font-size: 18px;
-  background-color: transparent;
-}
-
-#navbar {
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-.navbar-transparent {
-  background-color: transparent !important;
-}
-.navbar-scrolled {
-  background-color: rgba(255, 255, 255, 1) !important;
-}
-.navbar-hidden {
-  transform: translateY(-100%);
-}
-
-
-/* Define un contenedor fijo para la marca */
-.navbar-brand {
-    display: inline-block;
-    width: 200px;      /* Tamaño fijo */
-    height: 130px;     /* Tamaño fijo */
-    overflow: hidden;  /* Evita que la imagen ampliada se salga del contenedor */
-  }
-  
-  /* Aplica un escalado a la imagen dentro del contenedor */
-  .navbar-brand img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;  /* O 'cover', según el efecto deseado */
-    transform: scale(1.5);  /* Aumenta la imagen un 20% */
-    transition: transform 0.3s ease; /* Transición suave (opcional) */
-  }
-  
-
-
-/* Consolidación de estilos para los enlaces */
 .nav-link {
   position: relative;
   padding: 10px;
   font-size: 18px;
-  color: #333;
+  color: #000000;
   text-decoration: none;
   margin: 0 0.5rem;
   font-weight: 400;
@@ -159,6 +151,7 @@ body {
     font-family: 'ITC Edwardian', serif;
     background-color: transparent;
     text-shadow: #000 3px 3px 5px;  
+    
     
 }
 
