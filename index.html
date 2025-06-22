@@ -225,14 +225,14 @@
       Tours
     </h2>
         <p class="lead">
-      En Don Julian Tours, te invitamos a vivir momentos únicos. Participa en nuestras catas, recorridos por la bodega y eventos exclusivos donde podrás aprender sobre el proceso de elaboración y disfrutar de nuestros vinos en un entorno especial.
+      En Don Julian Tours, te invitamos a vivir momentos únicos. Participa en nuestras catas, recorridos por las parras y eventos exclusivos donde podrás aprender sobre el proceso de elaboración y disfrutar de nuestros vinos en un entorno especial.
     </p>
     
 <!-- Sección 1: Tour de la Uva -->
 <section class="container my-5">
   <div class="row justify-content-center">
     <div class="col-lg-10 text-center">
-      <h2 class="display-5 fw-bold gradient-text mb-4">Tour de la Uva en Punta Mala Arriba</h2>
+      <h2 class="display-6 fw-bold gradient-text mb-4">Tour de la Uva en Punta Mala Arriba</h2>
       <p class="fs-5 text-justify">
 <p class="fs-5 text-justify">
   <strong>Descripción:</strong> Descubre el fascinante proceso de cultivo de uvas y la elaboración del vino en nuestros viñedos ubicados en un entorno natural único en la región de Punta Mala Arriba. Durante esta experiencia guiada, recorrerás los viñedos y conocerás las particularidades del clima, el suelo y las prácticas agrícolas sostenibles que hacen posible una uva de alta calidad. Aprenderás cómo se seleccionan, cosechan y procesan las uvas para producir vino artesanal, todo explicado por expertos locales apasionados por su oficio.
@@ -241,7 +241,7 @@
   Además de caminar entre las parras, tendrás la oportunidad de observar técnicas tradicionales y modernas de cultivo, descubrir curiosidades sobre la historia del vino en Costa Rica, y conocer la importancia del manejo ecológico en nuestras prácticas agrícolas. Esta experiencia está diseñada tanto para amantes del vino como para quienes buscan una conexión más profunda con la tierra y la cultura rural costarricense.
 </p>
       </p>
-      <p class="fs-5 text-danger fw-semibold">
+      <p class="fs-5 fw-semibold">
         <strong>Nota:</strong> En el tour de la Uva en Punta Mala Arriba no se visita la bodega, solo el viñedo.
       </p>
       <p class="fs-5"><strong>Duración:</strong> Aproximadamente 4 horas</p>
@@ -249,10 +249,12 @@
     </div>
   </div>
 
+      <p class="mb-5 display-6 fw-bold text-center text-danger " style="font-size: 20px; padding-top: 50px;">TOUR NO DISPONIBLE EN ESTE MOMENTO, NO HAY COSECHA PARA REALIZAR EL TOUR.</p>
+
 <!-- Sección: Nuestros Paquetes -->
 <section id="nuestros-paquetes" class="py-5 bg-light">
   <div class="container text-center">
-    <h4 class="mb-5 display-6 fw-bold gradient-text">Nuestros Paquetes</h4>
+    <h4 class="mb-6 display-6 fw-bold gradient-text">Nuestros Paquetes</h4>
     <div class="row mt-4 justify-content-center">
 
     <!-- Paquete Plata -->
@@ -311,56 +313,6 @@
   <button onclick="clearCart()" class="btn btn-outline-secondary btn-sm w-100">Eliminar Todo</button>
 </div>
 
-<!-- JavaScript: Carrito de Compras -->
-<script>
-  let cart = {};
-
-  function updateCart(name, price, quantityChange) {
-    if (!cart[name]) cart[name] = { price: price, quantity: 0 };
-    cart[name].quantity += quantityChange;
-    if (cart[name].quantity <= 0) delete cart[name];
-    updateCartDisplay();
-    const countSpan = document.getElementById(`${name}-count`);
-    if (countSpan) countSpan.innerText = cart[name] ? cart[name].quantity : 0;
-  }
-
-  function updateCartDisplay() {
-    const cartList = document.getElementById("cart");
-    const totalElement = document.getElementById("total");
-    cartList.innerHTML = "";
-    let total = 0;
-    for (const item in cart) {
-      total += cart[item].price * cart[item].quantity;
-      const li = document.createElement("li");
-      li.textContent = `${item}: ${cart[item].quantity}`;
-      li.style.marginBottom = "4px";
-      cartList.appendChild(li);
-    }
-    totalElement.innerText = `Total: ₡${total.toLocaleString()}`;
-    document.getElementById("floating-cart").style.display = total > 0 ? "block" : "none";
-  }
-
-  function checkout() {
-    if (Object.keys(cart).length === 0) {
-      alert("Tu carrito está vacío!");
-      return;
-    }
-    let orderText = Object.keys(cart)
-      .map(item => `${item}: ${cart[item].quantity}`)
-      .join("\n");
-    let total = Object.values(cart)
-      .reduce((sum, item) => sum + item.price * item.quantity, 0);
-    let message = `Hola, deseo realizar un pedido:\n\n${orderText}\n\nTotal: ₡${total.toLocaleString()}`;
-    let whatsappURL = `https://wa.me/50687045587?text=${encodeURIComponent(message)}`;
-    window.location.href = whatsappURL;
-  }
-
-  function clearCart() {
-    cart = {};
-    updateCartDisplay();
-    document.querySelectorAll('[id$="-count"]').forEach(span => span.innerText = "0");
-  }
-</script>
 
 </section>
 
@@ -446,6 +398,7 @@
         </div>
       </div>
     </div>
+    
     
     
     <hr class="my-5">
@@ -815,6 +768,7 @@
 </section>
 
 
+
 <!-- Sección: Promociones -->
 <section id="promociones-vino" class="py-5 bg-white">
   <div class="container text-center">
@@ -828,11 +782,13 @@
           <h5>Vino de Uva</h5>
           <p><strong>Descripción:</strong> Refrescante y afrutado, ideal para días calurosos.</p>
           <p><strong>Precio:</strong> ₡25 000</p>
-          <div class="cart-controls">
-            <button onclick="updateCart('Vino de Uva Promo 3 por ₡25 000', 25000, -1)">−</button>
-            <span id="Vino de Uva Promo 3 por 1-count">0</span>
-            <button onclick="updateCart('Vino de Uva Promo 3 por ₡25 000', 25000, 1)">+</button>
-          </div>
+         
+<!-- Promoción Vino de Jaboticaba 3x1 -->
+<div class="cart-controls">
+  <button onclick="updateCart('promo-jaboticaba-3x1', 15000, -1)">−</button>
+  <span id="promo-jaboticaba-3x1-count">0</span>
+  <button onclick="updateCart('promo-jaboticaba-3x1', 15000, 1)">+</button>
+</div>
         </div>
       </div>
 
@@ -843,11 +799,13 @@
           <h5>Vino de Jaboticaba</h5>
           <p><strong>Descripción:</strong> Aromático y suave, con un final sedoso.</p>
           <p><strong>Precio:</strong> ₡15 000</p>
-          <div class="cart-controls">
-            <button onclick="updateCart('Vino de Jaboticaba 3 por ₡15 000', 15000, -1)">−</button>
-            <span id="Vino de Jaboticaba 3 por 1-count">0</span>
-            <button onclick="updateCart('Vino de Jaboticaba 3 por ₡15 000', 15000, 1)">+</button>
-          </div>
+             <!-- Promoción Vino de Uva 3x1 -->
+<div class="cart-controls">
+  <button onclick="updateCart('promo-uva-3x1', 25000, -1)">−</button>
+  <span id="promo-uva-3x1-count">0</span>
+  <button onclick="updateCart('promo-uva-3x1', 25000, 1)">+</button>
+</div>
+
         </div>
       </div>
 
@@ -865,8 +823,63 @@
         <br>
         <button onclick="clearCart()">Eliminar Todo</button>
       </div>
+
+
+
+
+
     
- 
+ <!-- JavaScript: Carrito de Compras -->
+<script>
+  let cart = {};
+
+  function updateCart(name, price, quantityChange) {
+    if (!cart[name]) cart[name] = { price: price, quantity: 0 };
+    cart[name].quantity += quantityChange;
+    if (cart[name].quantity <= 0) delete cart[name];
+    updateCartDisplay();
+    const countSpan = document.getElementById(`${name}-count`);
+    if (countSpan) countSpan.innerText = cart[name] ? cart[name].quantity : 0;
+  }
+
+  function updateCartDisplay() {
+    const cartList = document.getElementById("cart");
+    const totalElement = document.getElementById("total");
+    cartList.innerHTML = "";
+    let total = 0;
+    for (const item in cart) {
+      total += cart[item].price * cart[item].quantity;
+      const li = document.createElement("li");
+      li.textContent = `${item}: ${cart[item].quantity}`;
+      li.style.marginBottom = "4px";
+      cartList.appendChild(li);
+    }
+    totalElement.innerText = `Total: ₡${total.toLocaleString()}`;
+    document.getElementById("floating-cart").style.display = total > 0 ? "block" : "none";
+  }
+
+  function checkout() {
+    if (Object.keys(cart).length === 0) {
+      alert("Tu carrito está vacío!");
+      return;
+    }
+    let orderText = Object.keys(cart)
+      .map(item => `${item}: ${cart[item].quantity}`)
+      .join("\n");
+    let total = Object.values(cart)
+      .reduce((sum, item) => sum + item.price * item.quantity, 0);
+    let message = `Hola, deseo realizar un pedido:\n\n${orderText}\n\nTotal: ₡${total.toLocaleString()}`;
+    let whatsappURL = `https://wa.me/50687045587?text=${encodeURIComponent(message)}`;
+    window.location.href = whatsappURL;
+  }
+
+  function clearCart() {
+    cart = {};
+    updateCartDisplay();
+    document.querySelectorAll('[id$="-count"]').forEach(span => span.innerText = "0");
+  }
+</script>
+
 
 
 
@@ -996,11 +1009,7 @@
         <strong>Teléfono:</strong>
         <a href="tel:+50687045587" style="text-decoration: none; color: inherit;">+506 8704 5587</a>
       </p>
-      <p class="mb-1">
-        <i class="bi bi-envelope me-2"></i>
-        <strong>Correo Electrónico:</strong>
-        <a href="mailto:info@vinosdonjulian.com" style="text-decoration: none; color: inherit;">info@vinosdonjulian.com</a>
-      </p>
+
       <p class="mb-1">
         <i class="bi bi-geo-alt me-2"></i>
         <strong>Dirección:</strong> Provincia de Puntarenas, Osa. Vergel de Punta Mala.
@@ -1017,21 +1026,41 @@
     </div>
   </section>
   
+<section id="ubicacion" style="padding: 40px 0;">
+  <div class="container" style="max-width: 1200px; margin: 0 auto;">
+      <h5 class="mb-5 display-6 fw-bold text-center gradient-text">Ubicación</h5>
+    <div class="footer-maps" style="display: flex; gap: 20px; flex-wrap: wrap;">
+      
+      <!-- Punta Mala Arriba -->
+      <div style="flex: 1 1 45%; min-width: 300px;">
+        <h3 style="text-align: center; margin-bottom: 10px;">San Isidro del General</h3>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3100.7754779198162!2d-83.71837012626268!3d9.404619282998814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa1493cacea271b%3A0xc039cee3a2340027!2sVinos%20Don%20Julian!5e1!3m2!1ses-419!2scr!4v1744149574296!5m2!1ses-419!2scr"
+          width="100%"
+          height="250"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
+      </div>
 
-     
+      <!-- San Isidro del General -->
+      <div style="flex: 1 1 45%; min-width: 300px;">
+                <h3 style="text-align: center; margin-bottom: 10px;">Punta Mala Arriba</h3>
 
-<!-- Mapa Embebido en el Footer - Full Width -->
-<div class="map-embed" style="width: 100%;">
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3100.7754779198162!2d-83.71837012626268!3d9.404619282998814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa1493cacea271b%3A0xc039cee3a2340027!2sVinos%20Don%20Julian!5e1!3m2!1ses-419!2scr!4v1744149574296!5m2!1ses-419!2scr"  
-      width="100%" 
-      height="250" 
-      style="border:0;" 
-      allowfullscreen="" 
-      loading="lazy">
-    </iframe>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3447.3342558855666!2d-83.62070649008672!3d9.081014190944817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa3ff0029d4c0db%3A0x80db5c607abe395d!2zU2FuIElzZHJvIGRlbCBHZW5lcmFs!5e1!3m2!1ses!2scr!4v1750598497965!5m2!1ses!2scr"
+          width="100%"
+          height="250"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
+      </div>
+
+    </div>
   </div>
-  
+</section>
 
        <!-- WhatsApp Floating Button -->
        <a href="https://wa.me/50687045587" class="whatsapp-float" target="_blank">
@@ -1045,24 +1074,23 @@
       <div class="row d-flex align-items-stretch">
      <!-- Logo and Brief Description -->
 <div class="col-md-6 d-flex flex-column align-items-center justify-content-center text-center footer-logo mb-3 mb-md-0">
-    <a href="./index.html">
+    <a href="#">
       <img src="./assets/donjuliantourswhitebg.png" loading="lazy" alt="Don Julian Tours Logo" style="width: 250px; height: 200px;">
     </a>
-    <p class="description mt-2" style="margin-top: 8px;">
-      Don Julian Tours – Tradición y excelencia en cada copa.
+    <p class="description mt-1" style="margin-top: 8px;">
+      Don Julian Tours – Turismo Rural Comunitario con Identidad
     </p>
   </div>
   
   <!-- Contact Information -->
   <div class="col-md-6 d-flex flex-column justify-content-center text-md-start mb-3 mb-md-0">
-    <p>Ubicación: Barrio Monserrat, San José, San Isidro de El General, 11901</p>
+    <p>Ubicación: Barrio Monserrat, San José, San Isidro de El General, 11901 / Punta Mala Arriba, Puntarenas, Osa, 60501</p>
     <p><i class="fas fa-phone-alt"></i> +506 8704 5587</p>
     <p>
       <a href="https://wa.me/50687045587" style="text-decoration: none; color: inherit;">
         <i class="fab fa-whatsapp"></i> +506 8704 5587
       </a>
     </p>
-    <p><i class="fas fa-envelope"></i> <a href="mailto:info@vinosdonjulian.com">info@vinosdonjulian.com</a></p>
     <p><i class="fas fa-clock"></i> Lunes a Viernes: 7:00 AM - 8:00 PM</p>
     <p><i class="fas fa-clock"></i> Sábado: 8:00 AM - 6:00 PM</p>
     <p><i class="fas fa-clock"></i> Domingo: Cerrado</p>
