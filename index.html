@@ -14,7 +14,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  
+  <title>Don Julian Tours</title>
+  <meta name="description" content="Don Julian Tours es una experiencia única en Costa Rica, combinando tours de vino y pesca en un entorno natural impresionante. Ven a conocer sobre nuestros viñedos orgánicos y disfruta de la pesca sostenible en el Río Terraba.">
+
     <!-- Meta Keywords (optional but included) -->
 <meta name="keywords" content="Don Julian Tours, tour de vino Costa Rica, tour de pesca Costa Rica, Punta Mala Arriba, San Isidro del General, Puntarenas, viñedo orgánico, cata de vinos, pesca deportiva, pesca en río, guía de pesca, experiencia enológica, pesca en Rio Terraba, turismo enológico, turismo de aventura, paquete vino y pesca, actividades al aire libre, vino artesanal, pesca sostenible">
   
@@ -40,10 +42,7 @@
     <!-- JavaScript -->
     <script src="../script/script.js" defer></script>
   
-    <!-- Accessibility -->
-    <meta name="theme-color" content="#3a9a2b">
-    <meta name="author" content="Ecos del Bosque">
-    <meta name="robots" content="index, follow">
+ 
 
 
 
@@ -247,12 +246,42 @@
     </div>
   </div>
 
-      <p class="mb-5 display-6 fw-bold text-center text-danger " style="font-size: 20px; padding-top: 50px;">TOUR NO DISPONIBLE EN ESTE MOMENTO, NO HAY COSECHA PARA REALIZAR EL TOUR.</p>
+      <p class="mb-5 display-6 fw-bold text-center text-dark " style="font-size: 20px; padding-top: 50px;">NOTA IMPORTANTE: En San Isidro del General tenemos el tour disponible desde diciembre hasta mayo y de julio a septiembre. En la región de Osa, de febrero a abril.
+        <br>
+        <br>
+        En San Isidro del General solamente esta disponible el paquete esmeralda.
+      </p>
 
 <!-- Sección: Nuestros Paquetes -->
 <section id="nuestros-paquetes" class="py-5 bg-light">
   <div class="container text-center">
-    <h4 class="mb-6 display-6 fw-bold gradient-text">Nuestros Paquetes</h4>
+    <h4 class="mb-6 display-6 fw-bold gradient-text">Paquetes Disponibles en San Isidro del General </h4>
+    <div class="row mt-4 justify-content-center">
+
+
+
+<!-- Paquete Esmeralda -->
+<div class="col-md-4 mb-4">
+  <div class="menu-item p-3 border rounded shadow-sm bg-white">
+    <h5>Paquete Esmeralda</h5>
+    <p><strong>Descripción:</strong> Entrada, recorrido, vino, refrigerio, degustación y almuerzo.</p>
+    <p><strong>Precio:</strong> ₡20 000 por persona</p>
+    <div class="cart-controls d-flex justify-content-center align-items-center">
+      <button onclick="updateCart('Paquete Esmeralda San Isidro', 20000, -1)">−</button>
+      <span id="Paquete Esmeralda San Isidro-count" class="mx-2">0</span>
+      <button onclick="updateCart('Paquete Esmeralda San Isidro', 20000, 1)">+</button>
+    </div>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+</section>
+<!-- Sección: Nuestros Paquetes -->
+<section id="nuestros-paquetes" class="py-5 bg-light">
+  <div class="container text-center">
+    <h4 class="mb-6 display-6 fw-bold gradient-text">Paquetes Disponibles en Punta Mala Arriba</h4>
     <div class="row mt-4 justify-content-center">
 
     <!-- Paquete Plata -->
@@ -302,6 +331,7 @@
   </div>
 </section>
 
+
 <!-- Carrito de Compras Flotante -->
 <div id="floating-cart" style="display:none; position:fixed; bottom:20px; right:20px; background:#fff; border:2px solid #28a745; padding:10px; border-radius:8px; z-index:1000;">
   <p style="font-weight:bold; margin-bottom:8px;">Carrito</p>
@@ -313,6 +343,7 @@
 
 
 </section>
+
 
 
 
@@ -871,7 +902,7 @@ Su pulpa blanca, jugosa y aromática combina sabores dulces y ácidos, perfecta 
       .join("\n");
     let total = Object.values(cart)
       .reduce((sum, item) => sum + item.price * item.quantity, 0);
-    let message = `Hola, deseo realizar un pedido:\n\n${orderText}\n\nTotal: ₡${total.toLocaleString()}`;
+    let message = `Hola, deseo realizar una compra:\n\n${orderText}\n\nTotal: ₡${total.toLocaleString()}`;
     let whatsappURL = `https://wa.me/50687045587?text=${encodeURIComponent(message)}`;
     window.location.href = whatsappURL;
   }
